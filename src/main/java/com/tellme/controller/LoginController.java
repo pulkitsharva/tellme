@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tellme.dto.StudentDTO;
-import com.tellme.service.StudentService;
+import com.tellme.dto.LoginDTO;
+import com.tellme.service.SignupService;
 import com.tellme.util.UriConstants;
 
 @RestController
@@ -17,7 +17,7 @@ import com.tellme.util.UriConstants;
 public class LoginController {
 	
 	@Autowired
-	private StudentService studentService;
+	private SignupService studentService;
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<String> get(@PathVariable Integer id){

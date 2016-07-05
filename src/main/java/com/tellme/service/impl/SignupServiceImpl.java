@@ -8,18 +8,16 @@ import com.couchbase.client.java.Cluster;
 import com.couchbase.client.java.CouchbaseCluster;
 import com.couchbase.client.java.document.JsonDocument;
 import com.tellme.config.CouchbaseConfig;
-import com.tellme.service.StudentService;
+import com.tellme.dto.SignupDTO;
+import com.tellme.service.SignupService;
 @Service
-public class StudentServiceImpl implements StudentService {
-	
-	@Autowired
-	private CouchbaseConfig couchbase;
-	
-	public void getById(Integer id) {
-		Bucket bucket=couchbase.openBucket();
-		JsonDocument walter = bucket.get(id.toString());
-		System.out.println("Found: " + walter);
+public class SignupServiceImpl implements SignupService {
 
+	public void initiateSignup(SignupDTO signupDto) {
+		// TODO Auto-generated method stub
+		
 	}
+	
+	
 
 }
