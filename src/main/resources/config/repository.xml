@@ -26,7 +26,7 @@
 
 	<tx:annotation-driven transaction-manager="tellmeappTransactionManager" />
 
-	<jpa:repositories base-package="com.tellme.app.entity"
+	<jpa:repositories base-package="com.tellme.app.repository"
 		entity-manager-factory-ref="tellmeappEntityManagerFactory"
 		transaction-manager-ref="tellmeappTransactionManager" />
 
