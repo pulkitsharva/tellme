@@ -16,6 +16,7 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 			<property name="locations">
 				<list>
 					<value>classpath:config/dev/application-common.properties</value>
+					<value>classpath:config/dev/tellmeapp-repository.properties</value>
 				</list>
 			</property>
 		</bean>
@@ -30,6 +31,7 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 			<property name="locations">
 				<list>
 					<value>classpath:config/prod/application-common.properties</value>
+					<value>classpath:config/dev/tellmeapp-repository.properties</value>
 				</list>
 			</property>
 		</bean>
