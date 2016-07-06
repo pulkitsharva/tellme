@@ -1,6 +1,6 @@
-package com.tellme.service;
+package com.tellme.app.service;
 
-import com.tellme.dto.SignupDTO;
+import com.tellme.app.dto.SignupDTO;
 
 public interface SignupService {
 

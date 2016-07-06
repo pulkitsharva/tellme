@@ -1,4 +1,4 @@
-package com.tellme.util;
+package com.tellme.app.util;
 
 public final class UriConstants {
 	

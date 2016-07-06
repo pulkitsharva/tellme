@@ -1,4 +1,4 @@
-package com.tellme.config;
+package com.tellme.app.config;
 
 import java.util.Arrays;
 import java.util.List;

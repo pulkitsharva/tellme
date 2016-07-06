@@ -1,4 +1,4 @@
-package com.tellme.dto;
+package com.tellme.app.dto;
 
 public class LoginDTO {
 	
