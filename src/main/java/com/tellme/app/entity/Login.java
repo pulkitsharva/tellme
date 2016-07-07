@@ -2,6 +2,9 @@ package com.tellme.app.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.hibernate.annotations.Fetch;
+
 import java.util.Date;
 
 
@@ -34,7 +37,7 @@ public class Login implements Serializable {
     private String username;
 
     //bi-directional many-to-one association to UserProfile
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name="user_id")
     private UserProfile userProfile;
 

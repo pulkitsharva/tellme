@@ -1,14 +1,18 @@
 package com.tellme.app.dto;
 
-public class SignupDTO {
+import javax.validation.constraints.NotNull;
 
+public class SignupDTO {
+  
+  private Integer id;
+  @NotNull
   private String firstName;
   private String lastName;
+  @NotNull
   private String avatar;
   private String location;
+  @NotNull
   private LoginDTO login;
-  private String verifyPassword;
-
   public String getAvatar() {
     return avatar;
   }
@@ -23,14 +27,6 @@ public class SignupDTO {
 
   public void setLogin(LoginDTO login) {
     this.login = login;
-  }
-
-  public String getVerifyPassword() {
-    return verifyPassword;
-  }
-
-  public void setVerifyPassword(String verifyPassword) {
-    this.verifyPassword = verifyPassword;
   }
 
   public String getFirstName() {
@@ -55,6 +51,14 @@ public class SignupDTO {
 
   public void setLocation(String location) {
     this.location = location;
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
   
 

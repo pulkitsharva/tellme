@@ -2,6 +2,8 @@ package com.tellme.app.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,145 +13,131 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="user_profile")
-@NamedQuery(name="UserProfile.findAll", query="SELECT u FROM UserProfile u")
+@Table(name = "user_profile")
+@NamedQuery(name = "UserProfile.findAll", query = "SELECT u FROM UserProfile u")
 public class UserProfile implements Serializable {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
-	
-	@Column(name="avatar")
-	private String avatar;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_at")
-	private Date createdAt;
+  @Column(name = "avatar")
+  private String avatar;
 
-	@Column(name="first_name")
-	private String firstName;
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "created_at")
+  private Date createdAt;
 
-	@Column(name="last_name")
-	private String lastName;
-	
-	@Column(name="location")
-	private String location;
+  @Column(name = "first_name")
+  private String firstName;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="modified_at")
-	private Date modifiedAt;
+  @Column(name = "last_name")
+  private String lastName;
 
-	@Column(name="status")
-	private Short status;
+  @Column(name = "location")
+  private String location;
 
-	@Column(name="username")
-	private String username;
-	
-	@Column(name="signup_complete")
-    private Short signupComplete;
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "modified_at")
+  private Date modifiedAt;
 
-	//bi-directional many-to-one association to Login
-	@OneToMany(mappedBy="userProfile")
-	private List<Login> logins;
+  @Column(name = "status")
+  private Short status;
 
-	public UserProfile() {
-	}
+  @Column(name = "username")
+  private String username;
 
-	public Integer getId() {
-		return this.id;
-	}
+  @Column(name = "signup_complete")
+  private Short signupComplete;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  // bi-directional many-to-one association to Login
+  @OneToOne(mappedBy = "userProfile",cascade = {CascadeType.ALL})
+  private Login login;
 
-	public String getAvatar() {
-		return this.avatar;
-	}
+  public Login getLogin() {
+    return login;
+  }
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
+  public void setLogin(Login login) {
+    this.login = login;
+  }
 
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
+  public UserProfile() {}
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
+  public Integer getId() {
+    return this.id;
+  }
 
-	public String getFirstName() {
-		return this.firstName;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+  public String getAvatar() {
+    return this.avatar;
+  }
 
-	public String getLastName() {
-		return this.lastName;
-	}
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+  public Date getCreatedAt() {
+    return this.createdAt;
+  }
 
-	public String getLocation() {
-		return this.location;
-	}
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-	public Date getModifiedAt() {
-		return this.modifiedAt;
-	}
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-	public void setModifiedAt(Date modifiedAt) {
-		this.modifiedAt = modifiedAt;
-	}
+  public String getLastName() {
+    return this.lastName;
+  }
 
-	public Short getStatus() {
-		return this.status;
-	}
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-	public void setStatus(Short status) {
-		this.status = status;
-	}
+  public String getLocation() {
+    return this.location;
+  }
 
-	public String getUsername() {
-		return this.username;
-	}
+  public void setLocation(String location) {
+    this.location = location;
+  }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+  public Date getModifiedAt() {
+    return this.modifiedAt;
+  }
 
-	public List<Login> getLogins() {
-		return this.logins;
-	}
+  public void setModifiedAt(Date modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
 
-	public void setLogins(List<Login> logins) {
-		this.logins = logins;
-	}
+  public Short getStatus() {
+    return this.status;
+  }
 
-	public Login addLogin(Login login) {
-		getLogins().add(login);
-		login.setUserProfile(this);
+  public void setStatus(Short status) {
+    this.status = status;
+  }
 
-		return login;
-	}
+  public String getUsername() {
+    return this.username;
+  }
 
-	public Login removeLogin(Login login) {
-		getLogins().remove(login);
-		login.setUserProfile(null);
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-		return login;
-	}
-
+ 
   public Short getSignupComplete() {
     return signupComplete;
   }

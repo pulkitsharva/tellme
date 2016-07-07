@@ -23,7 +23,7 @@ public class ValidatorServiceImpl implements ValidatorService {
   public void validateSignupRequest(SignupDTO signupDTO) {
     Boolean phoneValid = Util.isPhoneValid(signupDTO.getLogin().getMobileNo());
     if (phoneValid) {
-      if (signupDTO.getLogin().getPassword().equals(signupDTO.getVerifyPassword())) {
+      if (signupDTO.getLogin().getPassword().equals(signupDTO.getLogin().getVerifyPassword())) {
         UserProfile userProfile = userService.getUserByUserName(signupDTO.getLogin().getUsername());
         if (null != userProfile) {
           throw new InvalidRequestException(ErrorCode.INVALID_REQUEST, "username already taken");
