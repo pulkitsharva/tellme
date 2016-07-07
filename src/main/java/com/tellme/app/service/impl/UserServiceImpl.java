@@ -3,6 +3,7 @@ package com.tellme.app.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tellme.app.dto.SignupDTO;
 import com.tellme.app.dto.UsernameAvailableDTO;
 import com.tellme.app.entity.UserProfile;
 import com.tellme.app.exception.ErrorCode;
@@ -35,6 +36,11 @@ public class UserServiceImpl implements UserService {
     else{
       throw new InvalidRequestException(ErrorCode.INVALID_REQUEST, "username cannot be null");
     }
+  }
+
+  public UserProfile createUserSignup(SignupDTO signupDTO) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

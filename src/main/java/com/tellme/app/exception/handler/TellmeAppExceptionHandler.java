@@ -15,7 +15,7 @@ import com.tellme.app.exception.ClientException;
 import com.tellme.app.exception.InvalidRequestException;
 import com.tellme.app.exception.client.TellmeAppErrorInfo;
 
-//@ControllerAdvice(basePackages = "com.akosha.checkout")
+@ControllerAdvice(basePackages = "com.tellme.app")
 public class TellmeAppExceptionHandler {
 
   private static final Logger LOG = LoggerFactory.getLogger(TellmeAppExceptionHandler.class);
