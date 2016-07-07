@@ -19,7 +19,8 @@ public class UserProfile implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-
+	
+	@Column(name="avatar")
 	private String avatar;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -31,16 +32,22 @@ public class UserProfile implements Serializable {
 
 	@Column(name="last_name")
 	private String lastName;
-
+	
+	@Column(name="location")
 	private String location;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="modified_at")
 	private Date modifiedAt;
 
-	private short status;
+	@Column(name="status")
+	private Short status;
 
+	@Column(name="username")
 	private String username;
+	
+	@Column(name="signup_complete")
+    private Short signupComplete;
 
 	//bi-directional many-to-one association to Login
 	@OneToMany(mappedBy="userProfile")
@@ -105,11 +112,11 @@ public class UserProfile implements Serializable {
 		this.modifiedAt = modifiedAt;
 	}
 
-	public short getStatus() {
+	public Short getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(short status) {
+	public void setStatus(Short status) {
 		this.status = status;
 	}
 
@@ -142,5 +149,13 @@ public class UserProfile implements Serializable {
 
 		return login;
 	}
+
+  public Short getSignupComplete() {
+    return signupComplete;
+  }
+
+  public void setSignupComplete(Short signupComplete) {
+    this.signupComplete = signupComplete;
+  }
 
 }

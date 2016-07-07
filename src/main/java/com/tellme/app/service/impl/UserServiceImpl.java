@@ -1,5 +1,7 @@
 package com.tellme.app.service.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +41,15 @@ public class UserServiceImpl implements UserService {
   }
 
   public UserProfile createUserSignup(SignupDTO signupDTO) {
-    // TODO Auto-generated method stub
+    UserProfile userProfile=new UserProfile();
+    userProfile.setAvatar(signupDTO.getAvatar());
+    userProfile.setCreatedAt(new Date());
+    userProfile.setFirstName(signupDTO.getFirstName());
+    userProfile.setLastName(signupDTO.getLastName());
+    userProfile.setLocation(signupDTO.getLocation());
+    userProfile.setUsername(signupDTO.getLogin().getUsername());
+    userProfile.setSignupComplete((short) 1);
+    userProfileRepository.save(userProfile);
     return null;
   }
 
